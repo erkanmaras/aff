@@ -29,11 +29,10 @@ dev_dependencies:
   mockito: ^4.1.1
 
 flutter:
-    
   fonts:
     - family: MaterialCommunityIcons
       fonts:
-        - asset: lib/icons/MaterialCommunityIcons.ttf
+        - asset: \lib\icons\MaterialCommunityIcons.ttf
 
   uses-material-design: true
  
