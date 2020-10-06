@@ -32,7 +32,7 @@ flutter:
   fonts:
     - family: MaterialCommunityIcons
       fonts:
-        - asset: lib\icons\MaterialCommunityIcons.ttf
+        - asset: assets/fonts/MaterialCommunityIcons.ttf
 
   uses-material-design: true
  
