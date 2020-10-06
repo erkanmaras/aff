@@ -29,18 +29,11 @@ dev_dependencies:
   mockito: ^4.1.1
 
 flutter:
-  assets:
-    - assets/images/
-      
+    
   fonts:
     - family: MaterialCommunityIcons
       fonts:
-        - asset: assets/fonts/MaterialCommunityIcons.ttf
-  # fonts:
-  #   - family: OpenSans
-  #     fonts: 
-  #       - asset: assets/fonts/opensans/OpenSans-Bold.ttf
-  #       ...
-  #       ... 
+        - asset: lib/icons/MaterialCommunityIcons.ttf
+
   uses-material-design: true
  
