@@ -1,11 +1,17 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:aff/ui.dart';
+
 class ProgressButton extends StatefulWidget {
-  ProgressButton({@required this.child, @required this.onPressed, this.color});
+  ProgressButton(
+      {@required this.child,
+      @required this.onPressed,
+      this.color,
+      this.indicatorColor});
 
   /// The background color of the button.
   final Color color;
+  final Color indicatorColor;
 
   /// Function that will be called at the on pressed event.
   final Function(VoidCallback startProgressing, VoidCallback stopProgressing,
@@ -82,7 +88,6 @@ class _ProgressButtonState extends State<ProgressButton>
     );
 
     var borderRadiusAnimation = Tween<BorderRadius>(
-      
       begin: context.getTheme().data.buttonBorderRadius(),
       end: BorderRadius.all(Radius.circular(buttonHeight / 2.0)),
     ).animate(CurvedAnimation(
@@ -109,7 +114,8 @@ class _ProgressButtonState extends State<ProgressButton>
                     startProgressing, stopProgressing, progressing);
               },
               child: progressing
-                  ? WidgetFactory.dotProgressIndicator(size: buttonHeight / 2)
+                  ? WidgetFactory.dotProgressIndicator(
+                      size: buttonHeight / 2, color: widget.indicatorColor)
                   : widget.child),
         );
       },
