@@ -77,14 +77,14 @@ class MessageDialog {
 
   static Future<DialogResult> info({
     @required BuildContext context,
-    @required String content,
+    @required String message,
     String title,
     DialogButton buttons,
   }) async {
     return _show(
       context,
       title ?? AffLocalizer.of(context).information,
-      content,
+      message,
       buttons: buttons,
       color: context.getTheme().colors.info,
     );
