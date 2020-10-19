@@ -11,7 +11,6 @@ abstract class IAppColors {
   Color get error;
   Color get warning;
   Color get info;
-  Color get fontDark;
   Color get font;
   Color get fontPale;
   Color get fontLight;

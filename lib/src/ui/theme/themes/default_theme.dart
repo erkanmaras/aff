@@ -25,8 +25,6 @@ class DefaultThemeColors extends IAppColors {
   @override
   Color get info => primary;
   @override
-  Color get fontDark => Color(0xff3b3e43);
-  @override
   Color get font => Color(0xff5F6368);
   @override
   Color get fontPale => Color(0xff80868B);
