@@ -132,7 +132,7 @@ AppThemeData buildDefaultTheme(BuildContext context, {IAppColors colors}) {
     chipTheme: ChipThemeData.fromDefaults(
       labelStyle: baseTheme.textTheme.bodyText2,
       primaryColor: appColors.primary,
-      secondaryColor: Color(0xffe8600d),
+      secondaryColor: appColors.inputFillColor,
     ),
     textSelectionTheme: baseTheme.textSelectionTheme
         .copyWith(selectionHandleColor: appColors.primary, selectionColor: appColors.primary.lighten(0.8)),
