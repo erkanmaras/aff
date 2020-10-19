@@ -1,8 +1,9 @@
+
 import 'package:aff/src/ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:aff/infrastructure.dart';
 
-class WhiteThemeColors extends IAppColors {
+class DefaultThemeColors extends IAppColors {
   //primartPale 0xffE8F0FE
   @override
   Color get accent => Color(0xff03469f); //0xff003F8C
@@ -47,8 +48,8 @@ class WhiteThemeColors extends IAppColors {
   Color get highlight => Color(0xffa9cbf7).withOpacity(0.3);
 }
 
-class WhiteThemeTextStyles extends IAppTextStyles {
-  WhiteThemeTextStyles(this.data, this.colors);
+class DefaultThemeTextStyles extends IAppTextStyles {
+  DefaultThemeTextStyles(this.data, this.colors);
   ThemeData data;
   IAppColors colors;
 
@@ -74,7 +75,7 @@ class WhiteThemeTextStyles extends IAppTextStyles {
   TextStyle get overline => data.textTheme.overline;
 }
 
-AppThemeData buildWhiteTheme(BuildContext context) {
+AppThemeData buildDefaultTheme(BuildContext context, {IAppColors colors}) {
   //appbar spesific copy
   TextTheme _appBarTextTheme(
     TextTheme base,
@@ -95,7 +96,7 @@ AppThemeData buildWhiteTheme(BuildContext context) {
   var buttonBorderRadius = BorderRadius.circular(18);
   var textBorderRadius = BorderRadius.circular(18);
   var cardBorderRadius = BorderRadius.circular(4);
-  var appColors = WhiteThemeColors();
+  var appColors = colors ?? DefaultThemeColors();
   var baseTheme = Theme.of(context);
   var newTheme = ThemeData(
     fontFamily: fontFamily,
@@ -255,5 +256,5 @@ AppThemeData buildWhiteTheme(BuildContext context) {
     }),
   );
 
-  return AppThemeData(newTheme, appColors, WhiteThemeTextStyles(newTheme, appColors));
+  return AppThemeData(newTheme, appColors, DefaultThemeTextStyles(newTheme, appColors));
 }
