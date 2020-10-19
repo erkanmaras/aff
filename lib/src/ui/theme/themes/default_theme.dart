@@ -38,9 +38,12 @@ class DefaultThemeColors extends IAppColors {
   Color get unselectedWidgetColor => fontPale;
   @override
   Color get toggleableActiveColor => primary;
+  @override
+  Color get inputFillColor => Color(0xFFf2f6fd);
   //Inkwell
   @override
   Color get splash => Color(0xffa9cbf7).withOpacity(0.5);
+
   @override
   Color get highlight => Color(0xffa9cbf7).withOpacity(0.3);
 }
