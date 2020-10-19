@@ -7,5 +7,5 @@ export 'theme_data_extensions.dart';
 export 'iapp_colors.dart';
 export 'iapp_colors.dart';
 export 'iapp_colors.dart';
-export 'themes/defaultTheme.dart';
+export 'themes/default_theme.dart';
 export 'app_icons.dart';

@@ -28,7 +28,7 @@ class TestApp extends StatelessWidget {
   Widget _builder(BuildContext context, Widget child) {
     var theme = Provider.of<AppTheme>(context);
     if (!theme.initialized) {
-      theme.setTheme(buildWhiteTheme(context));
+      theme.setTheme(buildDefaultTheme(context));
     }
 
     return Theme(data: theme.data, child: child);
