@@ -132,7 +132,7 @@ AppThemeData buildDefaultTheme(BuildContext context, {IAppColors colors}) {
     chipTheme: ChipThemeData.fromDefaults(
       labelStyle: baseTheme.textTheme.bodyText2,
       primaryColor: appColors.primary,
-      secondaryColor: appColors.inputFillColor,
+      secondaryColor: appColors.warning,
     ),
     textSelectionTheme: baseTheme.textSelectionTheme
         .copyWith(selectionHandleColor: appColors.primary, selectionColor: appColors.primary.lighten(0.8)),
@@ -199,7 +199,7 @@ AppThemeData buildDefaultTheme(BuildContext context, {IAppColors colors}) {
       counterStyle: TextStyle(color: appColors.fontPale),
       errorStyle: TextStyle(color: appColors.error.withOpacity(0.7)),
       contentPadding: EdgeInsets.all(10),
-      fillColor: Color(0xFFf2f6fd),
+      fillColor: appColors.inputFillColor,
       filled: true,
       isDense: true,
       border: ThemeUtils.inputBorder(
