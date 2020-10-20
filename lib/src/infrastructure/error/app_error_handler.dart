@@ -13,6 +13,10 @@ class AppErrorHandler {
 
   static Future<void> track(AppMain appMain) async {
     FlutterError.onError = (details) async {
+      //consola göndermek gereklimi ?
+      // if (!kReleaseMode) {
+      //   FlutterError.dumpErrorToConsole(details);
+      // }
       await _handle(details.exception, details.stack, context: details.context);
     };
 
@@ -26,17 +30,9 @@ class AppErrorHandler {
   }
 
   static Future<void> _handle(dynamic error, StackTrace stackTrace, {DiagnosticsNode context}) async {
-    // if (!kReleaseMode) {
-    //   debugPrint('AppErrorHandler error: $error');
-
-    //   if (stackTrace != null) {
-    //     debugPrint('AppErrorHandler stackTrace: $stackTrace');
-    //   }
-
-    //   if (context != null) {
-    //     debugPrint('AppErrorHandler context: $context');
-    //   }
-    // }
+    if (!kReleaseMode) {
+      debugPrint('AppErrorHandler handle: $error');
+    }
     var appErrorReport = AppErrorReport(error, stackTrace, clock.now(), context: context);
 
     try {
