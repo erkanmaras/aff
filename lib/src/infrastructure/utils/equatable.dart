@@ -1,3 +1,4 @@
+import 'package:aff/infrastructure.dart';
 import 'package:collection/collection.dart';
 
 /// [Equatable] does the override of the `==` operator as well as `hashCode`.
@@ -25,7 +26,7 @@ abstract class Equatable {
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ EquatableUtils.calculateHashCode(equatableProperties);
+  int get hashCode => runtimeType.hashCode ^ Hash.hashObjects(equatableProperties);
 
   @override
   String toString() => '$runtimeType';
@@ -45,14 +46,14 @@ mixin EquatableMixin {
   }
 
   @override
-  int get hashCode => runtimeType.hashCode ^ EquatableUtils.calculateHashCode(equatableProperties);
+  int get hashCode => runtimeType.hashCode ^ Hash.hashObjects(equatableProperties);
 
   @override
   String toString() => '$runtimeType';
 }
 
 class EquatableUtils {
-  static int calculateHashCode(Iterable<dynamic> props) => _finish(props.fold(0, _combineHash));
+  static DeepCollectionEquality _equality = DeepCollectionEquality();
 
   static bool propertiesEquals(List<Object> objectProperties, List<Object> otherProperties) {
     if (identical(objectProperties, otherProperties)) {
@@ -81,28 +82,5 @@ class EquatableUtils {
       }
     }
     return true;
-  }
-
-  static DeepCollectionEquality _equality = DeepCollectionEquality();
-
-  /// Jenkins Hash Functions
-  /// https://en.wikipedia.org/wiki/Jenkins_hash_function
-  static int _combineHash(int hash, dynamic object) {
-    if (object is Map) {
-      object.forEach((dynamic key, dynamic value) {
-        hash = hash ^ _combineHash(hash, <dynamic>[key, value]);
-      });
-      return hash;
-    }
-    final objectHashCode = object is Iterable ? calculateHashCode(object) : object.hashCode;
-    hash = 0x1fffffff & (hash + objectHashCode);
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int _finish(int hash) {
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
   }
 }
