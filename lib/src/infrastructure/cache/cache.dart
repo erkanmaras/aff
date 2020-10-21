@@ -35,8 +35,7 @@ class MemoryCache<K, V> {
   void set(K key, V element, {Duration expiration}) {
     if (!_storageMap.containsKey(key) && length >= _capacity) {
       //try remove an expired entry first
-      var entry = _storageMap.entries
-          .firstWhere((p) => p.value.expired(), orElse: () => null);
+      var entry = _storageMap.entries.firstWhere((p) => p.value.expired(), orElse: () => null);
 
       if (entry != null) {
         _storageMap.remove(entry.key);
@@ -61,4 +60,3 @@ class MemoryCache<K, V> {
 
   int get length => _storageMap.length;
 }
-

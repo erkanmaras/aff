@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'package:collection/collection.dart' as collections;
 
 extension IterableExtensions<TElement> on Iterable<TElement> {
@@ -27,8 +28,6 @@ extension IterableExtensions<TElement> on Iterable<TElement> {
 
     return result;
   }
-
-
 
   /// Returns the last element of a sequence, or a default value if the
   /// sequence contains no elements.
@@ -98,4 +97,31 @@ extension IterableExtensions<TElement> on Iterable<TElement> {
     return collections.maxBy(this, orderBy, compare: compare);
   }
 
+  /// Returns a new lazy [Iterable] containing only distinct elements from the
+  /// collection.
+  ///
+  /// The elements in the resulting list are in the same order as they were in
+  /// the source collection.
+  Iterable<TElement> distinct() sync* {
+    var existing = HashSet<TElement>();
+    for (var current in this) {
+      if (existing.add(current)) {
+        yield current;
+      }
+    }
+  }
+
+  /// Returns a new lazy [Iterable] containing only elements from the collection
+  /// having distinct keys returned by the given [selector] function.
+  ///
+  /// The elements in the resulting list are in the same order as they were in
+  /// the source collection.
+  Iterable<TElement> distinctBy<LProperty>(LProperty Function(TElement element) selector) sync* {
+    var existing = HashSet<LProperty>();
+    for (var current in this) {
+      if (existing.add(selector(current))) {
+        yield current;
+      }
+    }
+  }
 }
