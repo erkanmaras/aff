@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:aff/infrastructure.dart';
 import 'package:aff/ui.dart';
+import 'package:flutter/services.dart';
 
 class TextInputDialog extends StatefulWidget {
   TextInputDialog(
@@ -13,6 +14,7 @@ class TextInputDialog extends StatefulWidget {
       this.shape,
       this.value,
       this.textInputDecoration,
+      this.inputFormatters,
       this.onValidation,
       this.additionalActions,
       Key key})
@@ -36,6 +38,8 @@ class TextInputDialog extends StatefulWidget {
 
   final InputDecoration textInputDecoration;
 
+  final List<TextInputFormatter> inputFormatters;
+
   final String Function(String value) onValidation;
 
   final List<Widget> additionalActions;
@@ -43,8 +47,7 @@ class TextInputDialog extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _TextInputDialogState();
 
-  static Future<ValueDialogResult<String>> show(
-      BuildContext context, String titleText) async {
+  static Future<ValueDialogResult<String>> show(BuildContext context, String titleText) async {
     return showDialog<ValueDialogResult<String>>(
       context: context,
       builder: (context) {
@@ -69,9 +72,9 @@ class _TextInputDialogState extends State<TextInputDialog> {
   @override
   Widget build(BuildContext context) {
     var content = TextField(
+        inputFormatters: widget.inputFormatters,
         controller: controller,
-        decoration: (widget.textInputDecoration ?? InputDecoration())
-            .copyWith(errorText: errorText),
+        decoration: (widget.textInputDecoration ?? InputDecoration()).copyWith(errorText: errorText),
         autofocus: true);
     return InputDialog(
         title: widget.title,
@@ -86,12 +89,10 @@ class _TextInputDialogState extends State<TextInputDialog> {
               return;
             }
           }
-          Navigator.pop(context,
-              ValueDialogResult(DialogResult.ok, value: controller.text));
+          Navigator.pop(context, ValueDialogResult(DialogResult.ok, value: controller.text));
         },
         onCancelPressed: () {
-          Navigator.pop(
-              context, ValueDialogResult<String>(DialogResult.cancel));
+          Navigator.pop(context, ValueDialogResult<String>(DialogResult.cancel));
         },
         titleTextStyle: widget.titleTextStyle,
         backgroundColor: widget.backgroundColor,
