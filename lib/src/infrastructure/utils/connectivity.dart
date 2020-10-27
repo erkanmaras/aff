@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class Connectivity {
-  Future<bool> checkInternetConnection() async {
+  static Future<bool> checkInternetConnection() async {
     try {
       //google.com çinde çalışmıyor -> example.com
       final result = await InternetAddress.lookup('google.com');
