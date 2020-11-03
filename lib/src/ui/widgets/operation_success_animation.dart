@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:aff/ui.dart';
 
-// ignore: must_be_immutable
 class OperationSuccessAnimation extends StatefulWidget {
   OperationSuccessAnimation({this.borderColor, this.color, this.iconColor, this.shadowColor});
 
@@ -64,7 +63,7 @@ class _OperationSuccessAnimationState extends State<OperationSuccessAnimation> w
             child: Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
-                color: widget.color ?? Color(0xff8ade98),
+                color: widget.borderColor ?? Color(0xff8ade98),
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
