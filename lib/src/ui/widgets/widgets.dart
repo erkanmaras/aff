@@ -35,4 +35,5 @@ export 'slivers/fixed_height_sliver_persistent_header_delegate.dart';
 export 'background_hint.dart';
 export 'image_network.dart';
 export 'remove_effect_scroll_behavior.dart';
+export 'space.dart';
 export '../extensions.dart';

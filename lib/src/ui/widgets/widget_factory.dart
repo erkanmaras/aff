@@ -4,8 +4,7 @@ import 'package:aff/infrastructure.dart';
 import 'package:aff/ui.dart';
 
 class WidgetFactory {
-  static Widget dotProgressIndicator(
-      {Color color, double size = 20, double boxSize}) {
+  static Widget dotProgressIndicator({Color color, double size = 20, double boxSize}) {
     assert(boxSize == null || size <= boxSize);
 
     Widget indicator = ThreeDotWaitIndicator(color: color, size: size);
@@ -20,14 +19,12 @@ class WidgetFactory {
     return indicator;
   }
 
-  static Widget circularProgressIndicator(
-      {Color color, double size, double boxSize}) {
+  static Widget circularProgressIndicator({Color color, double size, double boxSize, double strokeWidth}) {
     assert(boxSize == null || size <= boxSize);
 
-    var indicatorColor =
-        color == null ? null : AlwaysStoppedAnimation<Color>(color);
+    var indicatorColor = color == null ? null : AlwaysStoppedAnimation<Color>(color);
     Widget indicator = CircularProgressIndicator(
-      strokeWidth: 3,
+      strokeWidth: strokeWidth ?? 3,
       valueColor: indicatorColor,
     );
 
@@ -136,9 +133,7 @@ class WidgetFactory {
               child: Padding(
                 padding: const EdgeInsets.only(right: 5),
                 child: Text(label,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: labelStyle ?? appTheme.textStyles.body),
+                    overflow: TextOverflow.ellipsis, maxLines: 2, style: labelStyle ?? appTheme.textStyles.body),
               )),
           Expanded(
               child: Padding(
@@ -146,9 +141,7 @@ class WidgetFactory {
             child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(value,
-                    overflow: TextOverflow.ellipsis,
-                    maxLines: 2,
-                    style: valueStyle ?? appTheme.textStyles.bodyBold)),
+                    overflow: TextOverflow.ellipsis, maxLines: 2, style: valueStyle ?? appTheme.textStyles.bodyBold)),
           )),
         ],
       ),
@@ -191,8 +184,7 @@ class WidgetFactory {
               child: Text(
                 value,
                 overflow: TextOverflow.ellipsis,
-                style: appTheme.data.textTheme.caption
-                    .copyWith(color: appTheme.colors.fontPale),
+                style: appTheme.data.textTheme.caption.copyWith(color: appTheme.colors.fontPale),
               ),
             ),
           );
@@ -211,8 +203,7 @@ class WidgetFactory {
               minHeight: kMinInteractiveDimension,
             ),
             child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 child: Row(
                   children: <Widget>[
                     Expanded(
@@ -227,9 +218,7 @@ class WidgetFactory {
                         ],
                       ),
                     ),
-                    if (suffixIconVisible)
-                      Icon(AppIcons.chevronRight,
-                          color: appTheme.colors.fontPale.withOpacity(0.5))
+                    if (suffixIconVisible) Icon(AppIcons.chevronRight, color: appTheme.colors.fontPale.withOpacity(0.5))
                   ],
                 ))),
       ),
@@ -278,8 +267,7 @@ class WidgetFactory {
             child: Text(
               value,
               overflow: TextOverflow.ellipsis,
-              style: appTheme.data.textTheme.caption
-                  .copyWith(color: appTheme.colors.fontPale),
+              style: appTheme.data.textTheme.caption.copyWith(color: appTheme.colors.fontPale),
             ),
           ),
         );
@@ -303,8 +291,7 @@ class WidgetFactory {
               minHeight: kMinInteractiveDimension,
             ),
             child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
                 child: Row(
                   children: <Widget>[
                     control,

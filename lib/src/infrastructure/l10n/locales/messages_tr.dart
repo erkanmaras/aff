@@ -211,6 +211,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "To Store": MessageLookupByLibrary.simpleMessage("Hedef Mağaza"),
         "To Store not selected": MessageLookupByLibrary.simpleMessage("Hedef mağaza seçili değil"),
         "Inventory can not be less than zero": MessageLookupByLibrary.simpleMessage("Envanter Eksiye Düşemez"),
+        "Load More End": MessageLookupByLibrary.simpleMessage("Tamamlandı"),
+        "Load More Error": MessageLookupByLibrary.simpleMessage("Opps Hata"),
+        "Load More Loading": MessageLookupByLibrary.simpleMessage("Yükleniyor"),
         "connectingToPrinter": m0,
         "disconnectingFromPrinter": m1,
         "responseContainsNoData": m2

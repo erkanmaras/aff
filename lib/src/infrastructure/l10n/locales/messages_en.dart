@@ -212,6 +212,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "To Store not selected": MessageLookupByLibrary.simpleMessage("To Store is not selected"),
         "Inventory can not be less than zero":
             MessageLookupByLibrary.simpleMessage("Inventory can not be less than zero"),
+        "Load More End": MessageLookupByLibrary.simpleMessage("The End"),
+        "Load More Error": MessageLookupByLibrary.simpleMessage("Opps Error"),
+        "Load More Loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "connectingToPrinter": m0,
         "disconnectingFromPrinter": m1,
         "responseContainsNoData": m2

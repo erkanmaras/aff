@@ -48,6 +48,9 @@ class AffLocalizer {
   String get noData => Intl.message('No data');
   String get all => Intl.message('All');
   String get recordNotFound => Intl.message('Record not found!');
+  String get loadMoreEnd => Intl.message('Load More End');
+  String get loadMoreError => Intl.message('Load More Error');
+  String get loadMoreLoading => Intl.message('Load More Loading');
 }
 
 class AffLocalizationsDelegate extends LocalizationsDelegate<AffLocalizer> {
