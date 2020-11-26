@@ -30,8 +30,6 @@ dev_dependencies:
 
 
 flutter:
-  assets:
-    - assets/images/
       
   fonts:
     - family: MaterialCommunityIcons
