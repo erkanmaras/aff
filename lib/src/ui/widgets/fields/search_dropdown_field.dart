@@ -315,9 +315,9 @@ class _SearchDropdownDialogState<T> extends State<_SearchDropdownDialog<T>> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    if (widget.autofocus ?? false) {
-      FocusScope.of(context).requestFocus(_focusNode);
-    }
+    // if (widget.autofocus ?? false) {
+    //   FocusScope.of(context).requestFocus(_focusNode);
+    // }
   }
 
   @override
